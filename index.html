@@ -1,0 +1,137 @@
+<title>Taiwan-Planspiel</title>
+<style>
+  :root {
+    --bg: #EDEEF0;
+    --surface: #FFFFFF;
+    --ink: #14181F;
+    --ink-soft: #565F6E;
+    --accent-1: #1F4E79;
+    --accent-1-ink: #F3F7FB;
+    --accent-2: #7A6A3F;
+    --accent-2-ink: #FBF8F1;
+    --ring: rgba(20, 24, 31, 0.14);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14171C;
+      --surface: #1D2129;
+      --ink: #E8E9EC;
+      --ink-soft: #9AA3B2;
+      --accent-1: #4C7FB0;
+      --accent-1-ink: #0D1720;
+      --accent-2: #B9A263;
+      --accent-2-ink: #1C1608;
+      --ring: rgba(232, 233, 236, 0.16);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #14171C;
+    --surface: #1D2129;
+    --ink: #E8E9EC;
+    --ink-soft: #9AA3B2;
+    --accent-1: #4C7FB0;
+    --accent-1-ink: #0D1720;
+    --accent-2: #B9A263;
+    --accent-2-ink: #1C1608;
+    --ring: rgba(232, 233, 236, 0.16);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  .stage {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: max(24px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right))
+      max(24px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  }
+
+  .stack {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .go {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 26px 28px;
+    border-radius: 16px;
+    border: none;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    box-shadow: 0 1px 2px var(--ring);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .go:active {
+    transform: scale(0.98);
+  }
+
+  .go:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  @media (hover: hover) {
+    .go:hover {
+      box-shadow: 0 6px 20px var(--ring);
+    }
+  }
+
+  .go-1 {
+    background: var(--accent-1);
+    color: var(--accent-1-ink);
+  }
+
+  .go-2 {
+    background: var(--accent-2);
+    color: var(--accent-2-ink);
+  }
+
+  .go .arrow {
+    font-size: 1.4rem;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .go { transition: none; }
+  }
+
+  @media (min-width: 640px) {
+    .go { font-size: 1.4rem; padding: 30px 32px; }
+  }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600&display=swap">
+
+<div class="stage">
+  <div class="stack">
+    <a class="go go-1" href="https://claude.ai/code/artifact/900412b0-27c4-45ee-9540-64b094622117" target="_blank" rel="noopener">
+      <span>Landungsplaner</span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
+    <a class="go go-2" href="https://claude.ai/code/artifact/eda189c3-a6e3-417c-a541-73612c8cd77b" target="_blank" rel="noopener">
+      <span>Entscheidungspfad</span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+</div>
